@@ -11,7 +11,7 @@ class generalSearch:
         return "findCube"
 
     def run(self, robot: cozmo.robot.Robot):
-        robot.set_head_angle(degrees(-5)).wait_for_completed()
+        robot.set_head_angle(degrees(-15)).wait_for_completed()
         robot.move_lift(-5)
 
         look_around = robot.start_behavior(cozmo.behavior.BehaviorTypes.LookAroundInPlace)

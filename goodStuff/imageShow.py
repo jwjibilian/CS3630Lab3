@@ -25,4 +25,4 @@ def showImage(info, image):
                                                                   invert_image=True)
         face_images.append(face_image)
     for image in face_images:
-        info.display_oled_face_image(image, 15000.0).wait_for_completed(timeout=20)
+        info.display_oled_face_image(image, 2000.0).wait_for_completed(timeout=3)

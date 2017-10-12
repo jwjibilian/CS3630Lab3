@@ -18,8 +18,9 @@ class colorTracking:
         robot.move_lift(-5)
         goLeft = False
 
+        showImage(robot, "COLOR.PNG")
+
         while True:
-            showImage(robot, "COLOR.PNG")
             event = robot.world.wait_for(cozmo.camera.EvtNewRawCameraImage, timeout=30)
             if event.image is not None:
                 image = np.asarray(event.image)
