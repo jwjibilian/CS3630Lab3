@@ -11,10 +11,10 @@ try:
 except ImportError:
     sys.exit('run `pip3 install --user Pillow numpy` to run this example')
 
-YELLOW_LOWER = np.array([60,150,150])
-YELLOW_UPPER = np.array([105, 255, 255])
-RED_LOWER = np.array([113,143,135])
-RED_UPPER = np.array([139, 199, 255])
+YELLOW_LOWER = np.array([79,150,139])
+YELLOW_UPPER = np.array([109, 255, 255])
+RED_LOWER = np.array([113,158,98])
+RED_UPPER = np.array([131, 255, 165])
 
 class redCube:
 
