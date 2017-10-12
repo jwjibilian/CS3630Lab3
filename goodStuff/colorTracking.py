@@ -47,10 +47,8 @@ class colorTracking:
                     robot.stop_all_motors()
                     if goLeft:
                         return "searchLeft", robot
-                        # robot.drive_wheels(-50,50)
                     else:
                         return "searchRight", robot
-                        # robot.drive_wheels(50,-50)
 
                 time.sleep(1)
                 robot.stop_all_motors()

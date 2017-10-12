@@ -3,7 +3,7 @@ import asyncio
 import cozmo
 from cozmo.util import degrees, Pose
 
-from goodStuff.imageShow import showImage
+from imageShow import showImage
 
 
 class generalSearch:
