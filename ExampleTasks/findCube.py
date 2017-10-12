@@ -11,10 +11,11 @@ try:
 except ImportError:
     sys.exit('run `pip3 install --user Pillow numpy` to run this example')
 
-YELLOW_LOWER = np.array([79,150,139])
-YELLOW_UPPER = np.array([109, 255, 255])
-RED_LOWER = np.array([113,158,98])
-RED_UPPER = np.array([131, 255, 165])
+YELLOW_LOWER = np.array([79,116,188])
+YELLOW_UPPER = np.array([116, 180, 255])
+RED_LOWER = np.array([116,116,188])
+RED_UPPER = np.array([143, 180, 255])
+
 
 class findCube:
 
@@ -22,7 +23,7 @@ class findCube:
         return "findCube"
 
     def run(self, item: cozmo.robot.Robot):
-            print("x")
+            #print("x")
 
 
             image_settings = [("ExampleTasks/Untitled.png", Image.NEAREST)]
@@ -38,7 +39,7 @@ class findCube:
                                                                           invert_image=True)
                 face_images.append(face_image)
             for image in face_images:
-                item.display_oled_face_image(image, 1000.0)
+                item.display_oled_face_image(image, 1000.0).wait_for_completed(timeout =20 )
 
              #   time.sleep(duration_s)
             #item.display_oled_face_image(Image.open("/home/jwjibilian/Desktop/RobotsLab3/CS3630Lab3/ExampleTasks/Untitled.png"),1000)
@@ -69,4 +70,5 @@ class findCube:
         # #            print(cube)
         #             #BoxAnnotator.cube = cube
              #        i+=1
+            #print("Hello", self.getName())
             return self.getName(), item
