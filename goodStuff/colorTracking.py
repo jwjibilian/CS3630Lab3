@@ -4,8 +4,8 @@ from cozmo.util import degrees, time
 from find_cube import find_cube
 import numpy as np
 
-YELLOW_LOWER = np.array([94, 169, 116])
-YELLOW_UPPER = np.array([113, 214, 158])
+YELLOW_LOWER = np.array([68, 113, 158])
+YELLOW_UPPER = np.array([113, 195, 255])
 
 class colorTracking:
     def getName(self):
@@ -36,25 +36,21 @@ class colorTracking:
                     else:
                         goLeft = False
                     if cube[2] < 0:
-                        # robot.drive_wheels(0,0)
                         robot.stop_all_motors()
                     elif cube[0] < 160: #turn left
                         robot.drive_wheels(25, 50)
-                        # time.sleep(1)
                     elif cube[0] > 200: #turn right
                         robot.drive_wheels(50, 25)
-                        # time.sleep(1)
                     else:
                         robot.drive_wheels(50,50)
-                        # time.sleep(1)
                 else:
+                    robot.stop_all_motors()
                     if goLeft:
-                        robot.drive_wheels(-50,50)
-                        # time.sleep(1)
+                        return "searchLeft", robot
+                        # robot.drive_wheels(-50,50)
                     else:
-                        robot.drive_wheels(50,-50)
-                        # time.sleep(1)
+                        return "searchRight", robot
+                        # robot.drive_wheels(50,-50)
 
                 time.sleep(1)
                 robot.stop_all_motors()
-                # return "stop", robot

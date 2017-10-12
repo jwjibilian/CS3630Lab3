@@ -10,8 +10,9 @@ from cozmo.util import degrees, distance_mm, Speed, radians
 
 from generalSearch import generalSearch
 from statemachine import StateMachine
-from stop import stop
 from colorTracking import colorTracking
+from searchRight import searchRight
+from searchLeft import searchLeft
 
 def run(robot: cozmo.robot.Robot):
 
@@ -21,13 +22,14 @@ def run(robot: cozmo.robot.Robot):
 
     FSM = StateMachine()
     gSearch = generalSearch()
-    stopState = stop()
-    # FSM.setStartState(gSearch)
     cTrack = colorTracking()
+    rightSearch = searchRight()
+    leftSearch = searchLeft()
     FSM.setStartState(gSearch)
-    FSM.addState(gSearch) #todo: after gSearch, go to cTrack state
-    FSM.addState(stopState)
+    FSM.addState(gSearch)
     FSM.addState(cTrack)
+    FSM.addState(rightSearch)
+    FSM.addState(leftSearch)
     FSM.run(robot)
 
 if __name__ == '__main__':

@@ -53,4 +53,4 @@ class generalSearch:
             print("test:", cube.pose.rotation.angle_z.degrees)
             action = robot.go_to_pose(pose)
             action.wait_for_completed()
-            return "stop", robot
+            return "colorTrack", robot
