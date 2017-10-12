@@ -4,8 +4,11 @@ from cozmo.util import degrees, time
 from find_cube import find_cube
 import numpy as np
 
-YELLOW_LOWER = np.array([94, 169, 116])
-YELLOW_UPPER = np.array([113, 214, 158])
+YELLOW_LOWER = np.array([79,116,188])
+YELLOW_UPPER = np.array([116, 180, 255])
+RED_LOWER = np.array([116,116,188])
+RED_UPPER = np.array([143, 180, 255])
+
 
 class colorTracking:
     def getName(self):

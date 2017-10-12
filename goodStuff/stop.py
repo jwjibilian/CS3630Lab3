@@ -6,5 +6,5 @@ class stop:
         return "stop"
 
     def run(self, robot: cozmo.robot.Robot):
-        print("stop")
+        #print("stop")
         return self.getName(), robot

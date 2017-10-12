@@ -11,10 +11,11 @@ try:
 except ImportError:
     sys.exit('run `pip3 install --user Pillow numpy` to run this example')
 
-YELLOW_LOWER = np.array([49,105,154])
-YELLOW_UPPER = np.array([113, 206, 218])
-RED_LOWER = np.array([113,113,154])
-RED_UPPER = np.array([184, 176, 255])
+YELLOW_LOWER = np.array([79,116,188])
+YELLOW_UPPER = np.array([116, 180, 255])
+RED_LOWER = np.array([116,116,188])
+RED_UPPER = np.array([143, 180, 255])
+
 
 
 class bothCube:

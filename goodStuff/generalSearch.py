@@ -3,6 +3,8 @@ import asyncio
 import cozmo
 from cozmo.util import degrees, Pose
 
+from goodStuff.imageShow import showImage
+
 
 class generalSearch:
     def getName(self):
@@ -15,6 +17,8 @@ class generalSearch:
         look_around = robot.start_behavior(cozmo.behavior.BehaviorTypes.LookAroundInPlace)
 
         cube = None
+
+        showImage(robot, "ARCUBE.png")
 
         try:
             cube = robot.world.wait_for_observed_light_cube(timeout=30)
