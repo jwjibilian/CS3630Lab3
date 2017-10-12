@@ -11,10 +11,11 @@ try:
 except ImportError:
     sys.exit('run `pip3 install --user Pillow numpy` to run this example')
 
-YELLOW_LOWER = np.array([79,150,139])
-YELLOW_UPPER = np.array([109, 255, 255])
-RED_LOWER = np.array([113,158,98])
-RED_UPPER = np.array([131, 255, 165])
+YELLOW_LOWER = np.array([49,105,154])
+YELLOW_UPPER = np.array([113, 206, 218])
+RED_LOWER = np.array([113,113,154])
+RED_UPPER = np.array([184, 176, 255])
+
 
 class redCube:
 
@@ -22,7 +23,7 @@ class redCube:
         return "red"
 
     def run(self, item: cozmo.robot.Robot):
-            print("x")
+           # print("x")
 
 
             image_settings = [("ExampleTasks/RED.png", Image.NEAREST)]
@@ -38,7 +39,7 @@ class redCube:
                                                                           invert_image=True)
                 face_images.append(face_image)
             for image in face_images:
-                item.display_oled_face_image(image, 1000.0)
+                item.display_oled_face_image(image, 1000.0).wait_for_completed(timeout=20)
 
              #   time.sleep(duration_s)
             #item.display_oled_face_image(Image.open("/home/jwjibilian/Desktop/RobotsLab3/CS3630Lab3/ExampleTasks/Untitled.png"),1000)
