@@ -4,16 +4,17 @@ from cozmo.util import degrees, time
 from find_cube import find_cube
 import numpy as np
 
-YELLOW_LOWER = np.array([71, 158, 158])
-YELLOW_UPPER = np.array([130, 210, 255])
+YELLOW_LOWER = np.array([94, 169, 116])
+YELLOW_UPPER = np.array([113, 214, 158])
 
 class colorTracking:
     def getName(self):
         return "colorTrack"
 
     def run(self, robot: cozmo.robot.Robot):
-        robot.set_head_angle(degrees(-5)).wait_for_completed()
+        robot.set_head_angle(degrees(-15)).wait_for_completed()
         robot.move_lift(-5)
+        goLeft = False
 
         while True:
             event = robot.world.wait_for(cozmo.camera.EvtNewRawCameraImage, timeout=30)
@@ -30,12 +31,30 @@ class colorTracking:
                     print("Cube not found")
 
                 if cube:
-                    if cube.pose.position.x < 85:
-                        robot.drive_wheels(0,0)
+                    if cube[0] < 170:
+                        goLeft = True
+                    else:
+                        goLeft = False
+                    if cube[2] < 0:
+                        # robot.drive_wheels(0,0)
+                        robot.stop_all_motors()
+                    elif cube[0] < 160: #turn left
+                        robot.drive_wheels(25, 50)
+                        # time.sleep(1)
+                    elif cube[0] > 200: #turn right
+                        robot.drive_wheels(50, 25)
+                        # time.sleep(1)
                     else:
                         robot.drive_wheels(50,50)
-                        time.sleep(0.25)
-                robot.drive_wheels(0,0)
+                        # time.sleep(1)
+                else:
+                    if goLeft:
+                        robot.drive_wheels(-50,50)
+                        # time.sleep(1)
+                    else:
+                        robot.drive_wheels(50,-50)
+                        # time.sleep(1)
+
                 time.sleep(1)
-                # action.wait_for_completed()
+                robot.stop_all_motors()
                 # return "stop", robot

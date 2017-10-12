@@ -24,8 +24,8 @@ def run(robot: cozmo.robot.Robot):
     stopState = stop()
     # FSM.setStartState(gSearch)
     cTrack = colorTracking()
-    FSM.setStartState(cTrack)
-    FSM.addState(gSearch)
+    FSM.setStartState(gSearch)
+    FSM.addState(gSearch) #todo: after gSearch, go to cTrack state
     FSM.addState(stopState)
     FSM.addState(cTrack)
     FSM.run(robot)
